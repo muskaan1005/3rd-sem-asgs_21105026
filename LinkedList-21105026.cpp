@@ -43,14 +43,14 @@ void insert_at_head(No_de*&head,string m_name,int age){
 }
 
 
-void display_from_start(No_de*head){
+void display_start(No_de*head){
     No_de*temp=head;
     while(temp!=NULL){cout<<"[Name:"<<temp->m_name<<" Age:"<<temp->age<<"]"<<"<=>";temp=temp->next;}
     cout<<endl;
 }
 
 
-void display_from_end(No_de*head){
+void display_end(No_de*head){
     No_de*temp=head;
     while(temp->next!=NULL){temp=temp->next;}
     while(temp!=NULL){cout<<"[Name:"<<temp->m_name<<" Age:"<<temp->age<<"]"<<"<=>";temp=temp->prev;}
@@ -92,5 +92,5 @@ int main(){
 
     cout<<"Doubly Linked list with family members:"<<endl;
     cout<<endl;
-    display_from_start(head);
+    display_start(head);
 }
