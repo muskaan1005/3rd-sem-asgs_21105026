@@ -2,13 +2,13 @@
 using namespace std;
 
 
-class No_de{
+class Family{
     public:
     string m_name;
     int age;
-    No_de*next;
-    No_de*prev;
-    No_de(string m_name,int age){
+    Family*next;
+    Family*prev;
+    Family(string m_name,int age){
         this->m_name=m_name;
         this->age=age;
         next=NULL;
@@ -17,9 +17,9 @@ class No_de{
 };
 
 
-void append(No_de* &head,string m_name,int age){
-    No_de*temp=head;
-    No_de*new_node=new No_de(m_name,age);
+void append(Family* &head,string m_name,int age){
+    Family*temp=head;
+    Family*new_node=new Family(m_name,age);
     if(temp==NULL){
         head=new_node;
     }
@@ -31,37 +31,37 @@ void append(No_de* &head,string m_name,int age){
 }
 
 
-void insert_at_head(No_de*&head,string m_name,int age){
-     No_de*new_node=new No_de(m_name,age);
+void insert_at_head(Family*&head,string m_name,int age){
+     Family*new_node=new Family(m_name,age);
      new_node->next=head;
      head->prev=new_node;
      head=new_node;
 }
 
 
-void display_start(No_de*head){
-    No_de*temp=head;
+void display_start(Family*head){
+    Family*temp=head;
     while(temp!=NULL){cout<<"[Name:"<<temp->m_name<<" Age:"<<temp->age<<"]"<<"<=>";temp=temp->next;}
     cout<<endl;
 }
 
 
-void display_end(No_de*head){
-    No_de*temp=head;
+void display_end(Family*head){
+    Family*temp=head;
     while(temp->next!=NULL){temp=temp->next;}
     while(temp!=NULL){cout<<"[Name:"<<temp->m_name<<" Age:"<<temp->age<<"]"<<"<=>";temp=temp->prev;}
     cout<<endl;
 }
 
-void delete_ind(No_de*&head,int i){
+void delete_ind(Family*&head,int i){
     if(i==0){
-        No_de*temp=head;
+        Family*temp=head;
         head=temp->next;
         head->prev=NULL;
         delete temp;
     }
     else{
-        No_de*temp=head;
+        Family*temp=head;
         for(int j=0;j<i;j++){temp=temp->next;}
         temp->prev->next=temp->next;
         temp->next->prev=temp->prev;
@@ -69,15 +69,15 @@ void delete_ind(No_de*&head,int i){
     }
 }
 
-void pop(No_de*&head){
-    No_de*temp=head;
+void pop(Family*&head){
+    Family*temp=head;
     while(temp->next!=NULL){temp=temp->next;}
     temp->prev->next=NULL;
     delete temp;
 }
 
 int main(){
-    No_de*head=NULL;
+    Family*head=NULL;
     append(head,"MEMBER A",80);
     append(head,"MEMBER B",50);
     append(head,"MEMBER C",47);
