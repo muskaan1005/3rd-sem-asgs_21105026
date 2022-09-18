@@ -18,10 +18,8 @@ class No_de{
 
 
 void append(No_de* &head,string m_name,int age){
-    
     No_de*temp=head;
     No_de*new_node=new No_de(m_name,age);
-   
     if(temp==NULL){
         head=new_node;
     }
@@ -34,12 +32,10 @@ void append(No_de* &head,string m_name,int age){
 
 
 void insert_at_head(No_de*&head,string m_name,int age){
-    
-    No_de*new_node=new No_de(m_name,age);
-    
-    new_node->next=head;
-    head->prev=new_node;
-    head=new_node;
+     No_de*new_node=new No_de(m_name,age);
+     new_node->next=head;
+     head->prev=new_node;
+     head=new_node;
 }
 
 
@@ -82,7 +78,6 @@ void pop(No_de*&head){
 
 int main(){
     No_de*head=NULL;
-   
     append(head,"MEMBER A",80);
     append(head,"MEMBER B",50);
     append(head,"MEMBER C",47);
